@@ -111,6 +111,13 @@ function Item({ item, handleDeleteItem, handleMarked }) {
   );
 }
 function Stats({ items }) {
+  if (!items.length)
+    return (
+      <p>
+        <em className="stats"> Start adding items to the packing list </em>
+      </p>
+    );
+
   const num = items.length;
   const numPacked = items.filter((item) => item.packed).length;
   const numPercentage = num === 0 ? 0 : Math.round((numPacked / num) * 100);
