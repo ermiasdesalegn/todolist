@@ -32,7 +32,7 @@ export default function App() {
         handleDeleteItem={handleDeleteItem}
         handleMarked={handleMarked}
       />
-      <Stats />
+      <Stats items={items} />
     </>
   );
 }
@@ -110,11 +110,14 @@ function Item({ item, handleDeleteItem, handleMarked }) {
     </li>
   );
 }
-function Stats() {
+function Stats({ items }) {
+  const num = items.length();
+
   return (
     <footer className="stats">
       <em>
-        You have x items on your list and you have already packed x (x%) of them
+        You have {num} items on your list and you have already packed x (x%) of
+        them
       </em>
     </footer>
   );
