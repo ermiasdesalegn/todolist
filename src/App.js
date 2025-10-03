@@ -111,7 +111,7 @@ function Item({ item, handleDeleteItem, handleMarked }) {
   );
 }
 function Stats({ items }) {
-  const num = items.length();
+  const num = items.length;
 
   return (
     <footer className="stats">
