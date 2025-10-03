@@ -114,7 +114,10 @@ function Stats({ items }) {
   if (!items.length)
     return (
       <p>
-        <em className="stats"> Start adding items to the packing list </em>
+        <em className="stats">
+          {" "}
+          Start adding items to the packing list for further notice{" "}
+        </em>
       </p>
     );
 
