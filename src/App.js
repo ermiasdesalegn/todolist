@@ -113,12 +113,12 @@ function Item({ item, handleDeleteItem, handleMarked }) {
 function Stats({ items }) {
   const num = items.length;
   const numPacked = items.filter((item) => item.packed).length;
-
+  const numPercentage = Math.round(numPacked / num) * 100;
   return (
     <footer className="stats">
       <em>
         You have {num} items on your list and you have already packed{" "}
-        {numPacked} (x%) of them
+        {numPacked} ({numPercentage}%) of them
       </em>
     </footer>
   );
