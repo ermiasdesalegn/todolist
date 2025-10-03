@@ -113,7 +113,7 @@ function Item({ item, handleDeleteItem, handleMarked }) {
 function Stats({ items }) {
   const num = items.length;
   const numPacked = items.filter((item) => item.packed).length;
-  const numPercentage = Math.round(numPacked / num) * 100;
+  const numPercentage = num === 0 ? 0 : Math.round((numPacked / num) * 100);
   return (
     <footer className="stats">
       <em>
