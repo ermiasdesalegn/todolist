@@ -23,7 +23,10 @@ export default function App() {
     );
   }
   function handleRemove() {
-    setItems([]);
+    const confirmed = window.confirm(
+      "are you sure you want to delete everything here?"
+    );
+    if (confirmed) setItems([]);
   }
   return (
     <>
