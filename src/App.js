@@ -92,6 +92,13 @@ function PackingList({ items, handleDeleteItem, handleMarked }) {
           />
         ))}
       </ul>
+      <div className="actions">
+        <select>
+          <option value="input">sort by input order </option>
+          <option value="description">sort by description</option>n
+          <option value="packed">sort by packed status</option>
+        </select>
+      </div>
     </div>
   );
 }
