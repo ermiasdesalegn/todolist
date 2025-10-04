@@ -81,6 +81,13 @@ function Form({ handleAddItems }) {
   );
 }
 function PackingList({ items, handleDeleteItem, handleMarked }) {
+  const [sortBy, setSortBy] = useState("input");
+  let sortedItems;
+  if (sortBy === "input") sortedItems = items;
+  if (sortBy === "description")
+    sortedItems = items.slice((a, b) => a.description - b.description);
+  if (sortBy === "packed")
+    sortedItems = items.slice((a, b) => a.packed - b.packed);
   return (
     <div className="list">
       <ul>
@@ -93,7 +100,7 @@ function PackingList({ items, handleDeleteItem, handleMarked }) {
         ))}
       </ul>
       <div className="actions">
-        <select>
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
           <option value="input">sort by input order </option>
           <option value="description">sort by description</option>n
           <option value="packed">sort by packed status</option>
