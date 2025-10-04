@@ -85,9 +85,13 @@ function PackingList({ items, handleDeleteItem, handleMarked }) {
   let sortedItems;
   if (sortBy === "input") sortedItems = items;
   if (sortBy === "description")
-    sortedItems = items.slice((a, b) => a.description - b.description);
+    sortedItems = items
+      .slice()
+      .sort((a, b) => a.description.localCompare(b.description));
   if (sortBy === "packed")
-    sortedItems = items.slice((a, b) => a.packed - b.packed);
+    sortedItems = items
+      .slice()
+      .sort((a, b) => Number(a.packed) - Number(b.packed));
   return (
     <div className="list">
       <ul>
