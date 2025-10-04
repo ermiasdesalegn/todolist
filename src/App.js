@@ -95,7 +95,7 @@ function PackingList({ items, handleDeleteItem, handleMarked }) {
   return (
     <div className="list">
       <ul>
-        {items.map((item) => (
+        {sortedItems.map((item) => (
           <Item
             item={item}
             handleDeleteItem={handleDeleteItem}
