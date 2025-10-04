@@ -22,7 +22,9 @@ export default function App() {
       )
     );
   }
-
+  function handleRemove() {
+    setItems([]);
+  }
   return (
     <>
       <Logo />
@@ -31,6 +33,7 @@ export default function App() {
         items={items}
         handleDeleteItem={handleDeleteItem}
         handleMarked={handleMarked}
+        handleRemove={handleRemove}
       />
       <Stats items={items} />
     </>
@@ -80,7 +83,7 @@ function Form({ handleAddItems }) {
     </form>
   );
 }
-function PackingList({ items, handleDeleteItem, handleMarked }) {
+function PackingList({ items, handleDeleteItem, handleMarked, handleRemove }) {
   const [sortBy, setSortBy] = useState("input");
   let sortedItems;
   if (sortBy === "input") sortedItems = items;
@@ -92,6 +95,7 @@ function PackingList({ items, handleDeleteItem, handleMarked }) {
     sortedItems = items
       .slice()
       .sort((a, b) => Number(a.packed) - Number(b.packed));
+
   return (
     <div className="list">
       <ul>
@@ -109,6 +113,7 @@ function PackingList({ items, handleDeleteItem, handleMarked }) {
           <option value="description">sort by description</option>n
           <option value="packed">sort by packed status</option>
         </select>
+        <button onClick={handleRemove}>Clear List</button>
       </div>
     </div>
   );
