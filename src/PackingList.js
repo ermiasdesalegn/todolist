@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Item } from "./App";
+import Item from "./Item";
 
 export function PackingList({
   items,
